@@ -66,10 +66,10 @@ def main():
     display_button=ttk.Button(frame3,text='what will be inside?')
     display_button['command']=(lambda: respond_to_entry(my_entry_box) )
     display_button.grid()
-    root.mainloop()
+
 
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -92,10 +92,17 @@ def main():
     #      n = int(s)
     ####################################################################
 
+    new_entry_box = ttk.Entry(frame3)
+    new_entry_box.grid()
 
+    multi_entry_button = ttk.Button(frame3, text='you want more dickhead?')
+    multi_entry_button['command'] = (lambda: multiply(my_entry_box,new_entry_box))
+    multi_entry_button.grid()
+
+    root.mainloop()
 
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
 
 def respond_to_entry(entry_box):
@@ -103,6 +110,14 @@ def respond_to_entry(entry_box):
         print('Hello')
     else:
         print('Goodbye')
+
+def multiply(entry_box1,entry_box2):
+    text=entry_box1.get()
+    n=entry_box2.get()
+    num=int(entry_box2.get())
+    # for k in range (num):
+    #     print(text)
+    print(int(text)*n)
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
